@@ -1,0 +1,53 @@
+# this is rishu learning linux
+
+1 cat example.txt
+2 ls
+3 mkdir documnets
+4 cp file1.txt /backup
+5 cd ..
+  -> to navigate to parent directory
+  -> cp ../B1/fruits.txt fruits.txt == copy one dir to amother 
+  -> can access any folder from any folder - just need correct path
+6 grep "apple" fruits.txt
+7 rm -rf old_files
+8 du -k report.pdf
+  -> or ls -s fruits.txt
+  -> or ls -ltr == show all data and file permissions
+9 mv oldname.txt newname.txt
+10 tail -n 10 logfile.txt
+   -> or tail -10 example.txt
+11 useradd john
+   -> sudo adduser == also ask password
+12 passwd john
+   -> enter password 2 times
+13 userdel -r alice
+   -> use sudo 
+14 chmod 644 data.txt
+   -> 6-user read write 4-group read 4-others read
+15 chown bob:staff shared
+   -> create bob and staff then using useradd else try with existing in system
+   -> list all users in your system == cat /etc/passwd
+
+-> directly run program without needing to change permission == bash filename.sh
+-> # single line comment
+-> <<arg multi line comments - - - arg  == create argument after << and close by same argument
+-> sum=$((op1+op2)) == use for any calculation
+-> let sum=$n1+$n2 == not much used but will work
+-> sum2=$((n1+n2)) == most used
+-> echo $((n * $(fact $((n-1))))) == using funtion inside equation 
+
+==> Loops
+-> for((i=1;i<=5;i++)) do -- done
+-> for i in 1 2 3 4 5 do -- done
+-> for j in Rishu Kumar do echo "$j" done
+-> for k in {1..5} do -- done == needs continous
+-> for i in "rk" pk gk do -- done
+-> for(( ;; )) do echo "Hi" sleep 2s done  == infinite loop
+
+
+==> Pipe
+-> take the input from another command
+-> ls | grep "while.sh"
+
+
+# thank you
