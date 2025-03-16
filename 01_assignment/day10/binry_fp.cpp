@@ -7,7 +7,6 @@
 #include <iomanip>
 #include <istream>
 #include <fstream>
-#include <bitset>
 using namespace std;
 
 int main(){
@@ -33,6 +32,7 @@ int main(){
     char bufferArray[buffersize];
     while(fin.read(bufferArray, buffersize)){
 // temp = fin.read(bufferArray, buffersize);
+  // 
    unsigned char byte = static_cast<unsigned char>(bufferArray[0]);
         // Print the byte in binary format
         cout << bitset<8>(byte) << " "; // Print as 8 bits     cout << temp;
