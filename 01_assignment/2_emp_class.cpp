@@ -1,6 +1,7 @@
 #include<iostream>
 #include <ostream>
 #include<string>
+#include<limits>
 #include<vector>
 
 using namespace std;
@@ -11,9 +12,9 @@ class Emp{
   string address;
   string salary;
   public:
-    Emp():eid(""),name(""),address(""),salary(""){
-      cout<<"default ctor of emp called"<<endl;
-    }
+    // Emp():eid(""),name(""),address(""),salary(""){
+    //   cout<<"default ctor of emp called"<<endl;
+    // }
     Emp(string i,string n,string a,string s)
     :eid(i),name(i),address(a),salary(s){
       cout<<"parameterized ctor called"<<endl;
@@ -23,13 +24,13 @@ class Emp{
       cin.ignore();
       getline(cin,eid);
       cout<<"enter name"<<endl;
-      cin.ignore();
+      //cin.ignore();
       getline(cin,name);
       cout<<"enter address"<<endl;
-      cin.ignore();
+      //cin.ignore();
       getline(cin,address);
       cout<<"enter salary"<<endl;
-      cin.ignore();
+      //cin.ignore();
       getline(cin,salary);
     }
     void display(){
@@ -57,7 +58,7 @@ class Emp{
 };
 
 int main(){
-  Emp a;
+  Emp a("1","a","b","c");
   int n;
   vector<Emp> e;
   do{
@@ -100,6 +101,7 @@ int main(){
         for(int i=0;i<e.size();i++){
           if((e[i].getEid()).compare(ei)){
             cout<<"found at "<<e[i].getEid();
+            cout <<endl;
           }else if((e[i].getEid()).compare(ei)!=0 && i==e.size()-1){
             cout<<"not found"<<endl;
           }
@@ -131,23 +133,29 @@ int main(){
     case 5:
       {
         cout<<"modify"<<endl;
-        cout<<"enter detals of eid for modify - "<<endl;
+        cout<<"enter detals of eid for modify - ";
         string ei;
-        cin.ignore();
-        if(!(getline(cin,ei))){
-          cout<<"invalid input"<<endl;
-          break;
-        }
-        for(int i=0;i<e.size();i++){
-          if((e[i].getEid()).compare(ei)){
-            cout<<"found at "<<e[i].getEid();
-            Emp i;
-            i.accept();
-            
-          }else if((e[i].getEid()).compare(ei)!=0 && i==e.size()-1){
-            cout<<"eid not found"<<endl;
+        cin.ignore(); 
+        // if(!(getline(cin,ei))){
+        //   cout<<"invalid input"<<endl;
+        //   break;
+        // }
+        getline(cin,ei);
+        bool found = false;
+        for (int i = 0; i < e.size(); i++)
+        {
+          if (e[i].getEid() == ei)
+          {
+            cout << "found at " << e[i].getEid();
+            e[i].accept();
+            found = true;
+            break;
           }
         }
+        if (!found)
+        {
+          cout << "eid not found" << endl;
+        }      
       }break;
       case 6:{cout<<"exiting..."<<endl;}
         break;
